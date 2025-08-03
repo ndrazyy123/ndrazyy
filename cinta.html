@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Cinta</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 40px;
+      color: #ff3399;
+    }
+    button {
+      background-color: #ff3399;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #cc0066;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="text">HALO CANTIK 💖</h1>
+  <div id="buttonArea">
+    <button onclick="nextStep()">HAII</button>
+  </div>
+
+  <script>
+    let step = 0;
+    function nextStep() {
+      const text = document.getElementById('text');
+      const buttonArea = document.getElementById('buttonArea');
+
+      if (step === 0) {
+        text.innerText = "MAU GAK JADI PACARKU?";
+        buttonArea.innerHTML = `
+          <button onclick="jawab('MAU')">MAU</button>
+          <button onclick="jawab('GAK')">GAK MAU</button>
+        `;
+        step++;
+      }
+    }
+
+    function jawab(pilihan) {
+      const text = document.getElementById('text');
+      const buttonArea = document.getElementById('buttonArea');
+
+      if (pilihan === "MAU") {
+        text.innerText = "YEY SEKARANG KITA PACARAN 💑💕";
+        buttonArea.innerHTML = '';
+      } else {
+        text.innerText = "POKOKNYA HARUS MAU!!! 😡💘";
+        buttonArea.innerHTML = `
+          <button onclick="jawab('MAU')">YA UDAH MAU</button>
+        `;
+      }
+    }
+  </script>
+
+</body>
+</html>
